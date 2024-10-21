@@ -1,0 +1,211 @@
+
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #f1f1f1;  */
+    background-color: black;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation bar styling */
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: navy;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Make the header fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the header stays on top of the rest of the content */
+  }
+  
+  /* Padding for the content below the fixed header */
+  .header-spacer {
+    height: 90px; /* Adjust this height to match the header's height */
+  }
+  
+  /* Search Bar */
+  .searchBar input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .searchBar input:focus {
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .searchBar button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .searchBar button:hover {
+    background-color: #218838;
+  }
+  
+  /* Filter bar styling */
+  .filterBar select, .filterBar input[type="date"], .filterBar input[type="text"] {
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .filterBar input[type="date"]:focus, 
+  .filterBar input[type="text"]:focus,  
+  .filterBar select:focus {
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  .filterBar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 45%;
+  }
+  
+  .head {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: center;
+    background: linear-gradient(90deg, white, red);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 3s infinite;
+    background-size: 200% auto;
+  }
+  
+  /* Keyframes for the shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  /* News Container */
+  .newsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Loading state */
+  .loading {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+  }
+  
+  /* Card Component */
+  .card {
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  /* For devices with a width of up to 768px (tablets, small screens) */
+  @media (max-width: 768px) {
+    /* Adjust the flex layout for search and filter bar */
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .searchBar input {
+      width: 80%; /* Adjust the width for smaller screens */
+    }
+  
+    .filterBar {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  
+    /* Reduce card size on smaller screens */
+    .card {
+      width: 90%;
+    }
+  }
+  
+  /* For devices with a width of up to 576px (mobile screens) */
+  @media (max-width: 576px) {
+    .searchBar input {
+      width: 100%;
+    }
+  
+    .filterBar input[type="date"],
+    .filterBar input[type="text"] {
+      width: 100%;
+    }
+  
+    .newsContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 100%; /* Make cards full width on mobile */
+    }
+  }
